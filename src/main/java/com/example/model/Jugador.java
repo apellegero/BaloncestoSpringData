@@ -1,19 +1,29 @@
 package com.example.model;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import java.util.Date;
+
 /**
  * Created by Albert on 07/11/2016.
  */
+@Entity
 public class Jugador {
-    int id;
+
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    long Id;
     String name;
-    String fecha_nacimiento;
+    Date fecha_nacimiento;
     int n_canastas;
     int n_asistencias;
     int n_rebotes;
     String posicion;
 
-    public Jugador(int id, String name, String fecha_nacimiento, int n_canastas, int n_asistencias, int n_rebotes, String posicion) {
-        this.id = id;
+    public Jugador(long id, String name, Date fecha_nacimiento, int n_canastas, int n_asistencias, int n_rebotes, String posicion) {
+        this.Id = id;
         this.name = name;
         this.fecha_nacimiento = fecha_nacimiento;
         this.n_canastas = n_canastas;
@@ -22,12 +32,12 @@ public class Jugador {
         this.posicion = posicion;
     }
 
-    public int getId() {
-        return id;
+    public long getId() {
+        return Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(long id) {
+        this.Id = id;
     }
 
     public String getName() {
@@ -38,11 +48,11 @@ public class Jugador {
         this.name = name;
     }
 
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
@@ -81,11 +91,11 @@ public class Jugador {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Jugador)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Jugador jugador = (Jugador) o;
 
-        if (id != jugador.id) return false;
+        if (Id != jugador.Id) return false;
         if (n_canastas != jugador.n_canastas) return false;
         if (n_asistencias != jugador.n_asistencias) return false;
         if (n_rebotes != jugador.n_rebotes) return false;
@@ -98,7 +108,7 @@ public class Jugador {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (int) (Id ^ (Id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (fecha_nacimiento != null ? fecha_nacimiento.hashCode() : 0);
         result = 31 * result + n_canastas;
@@ -111,9 +121,9 @@ public class Jugador {
     @Override
     public String toString() {
         return "Jugador{" +
-                "id=" + id +
+                "Id=" + Id +
                 ", name='" + name + '\'' +
-                ", fecha_nacimiento='" + fecha_nacimiento + '\'' +
+                ", fecha_nacimiento=" + fecha_nacimiento +
                 ", n_canastas=" + n_canastas +
                 ", n_asistencias=" + n_asistencias +
                 ", n_rebotes=" + n_rebotes +
