@@ -31,7 +31,7 @@ public interface JugadorRepository extends JpaRepository<Jugador,Long> {
     List<Jugador> findByPosicion(@Param("posicion") String posicion);
 
     //Buscar jugadores que hayan nacido en una fecha anterior a una fecha especificada como parámetro.
-    List<Jugador> findByBirthdayBefore(Date fecha);
+   // List<Jugador> findByFecha_nacimientoBefore(Date fecha);
 
     //Agrupar los jugadores por la posición del campo y devolver para cada grupo la siguiente información: la media de canastas, asistencias y rebotes.
     @Query("SELECT jdr.posicion,AVG(jdr.n_canastas),AVG(jdr.n_asistencias),AVG(jdr.n_rebotes) FROM Jugador jdr GROUP BY jdr.posicion")

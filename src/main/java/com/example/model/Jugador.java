@@ -26,6 +26,8 @@ public class Jugador {
     @ManyToOne  //un jugador sólo puede pertenecer a un equipo
     private Equipo equipo;
 
+    public Jugador(){}
+
     public Jugador(long id, String name, Date fecha_nacimiento, int n_canastas, int n_asistencias, int n_rebotes, String posicion, Equipo equipo) {
         this.Id = id;
         this.name = name;

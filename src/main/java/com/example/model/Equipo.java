@@ -18,6 +18,7 @@ public class Equipo {
     String localidad;
     Date fecha_creacion;
 
+    public Equipo(){}
 
     public Equipo(long id, String nombre, String localidad, Date fecha_creacion) {
         Id = id;
